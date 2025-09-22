@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Customer Segmentation Analysis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo">BankSeg</a>
+            <div class="nav-links">
+                <a href="#overview">Overview</a>
+                <a href="#methodology">Methodology</a>
+                <a href="#segments">Segments</a>
+                <a href="#insights">Insights</a>
+                <a href="user-dashboard.html" class="dashboard-link">
+                    <i class="fas fa-tachometer-alt"></i> Dashboard
+                </a>
+                <a href="#" id="loginBtn" class="btn btn-primary" onclick="handleLoginClick(event)">Login</a>
+                <a href="#" id="logoutBtn" class="btn btn-secondary" style="display: none;">Logout</a>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="animate-text">Bank Customer Segmentation Analysis</h1>
+                <p class="animate-text">Unlock the power of data-driven customer insights for personalized banking experiences</p>
+                <a href="#segments" class="btn btn-primary btn-large animate-btn">Explore Segments</a>
+            </div>
+            <div class="hero-image">
+                <img src="images/hero-analytics.svg" alt="Data Analytics" class="float">
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Access Section -->
+    <section class="dashboard-access-section">
+        <div class="container">
+            <div class="dashboard-access-content">
+                <div class="dashboard-access-text">
+                    <h2>🚀 Access Your Banking Dashboard</h2>
+                    <p>Explore your personalized banking insights, financial patterns, and customer segmentation data in our interactive dashboard.</p>
+                    <div class="dashboard-features">
+                        <div class="feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Real-time Banking Patterns</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-user"></i>
+                            <span>Personal Financial Profile</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-lightbulb"></i>
+                            <span>AI-Powered Insights</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-trophy"></i>
+                            <span>Financial Goal Tracking</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="dashboard-access-cta">
+                    <a href="user-dashboard.html" class="btn btn-primary btn-large dashboard-btn">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Launch Dashboard</span>
+                    </a>
+                    <p class="cta-note">No login required • Instant access • Demo data available</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="overview" class="section">
+        <div class="container">
+            <h2 class="section-title">Project Overview</h2>
+            <div class="overview-grid">
+                <div class="card">
+                    <i class="fas fa-database"></i>
+                    <h3>45K+ Records</h3>
+                    <p>Comprehensive bank customer data for accurate segmentation</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>20+ Features</h3>
+                    <p>Detailed customer attributes for precise clustering</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-users"></i>
+                    <h3>4 Key Segments</h3>
+                    <p>Distinct customer groups with unique characteristics</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Methodology Section -->
+    <section id="methodology" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Our Methodology</h2>
+            <div class="methodology-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Data Collection</h3>
+                    <p>Gathered from Kaggle Bank Marketing Dataset with 45,000+ customer records</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Preprocessing</h3>
+                    <p>Handled missing values, encoded categorical data, and scaled features</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Clustering</h3>
+                    <p>Applied K-Means algorithm with optimal K determined by Elbow Method</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Analysis</h3>
+                    <p>Extracted meaningful insights from each customer segment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Segments Section -->
+    <section id="segments" class="section">
+        <div class="container">
+            <h2 class="section-title">Customer Segments</h2>
+            <div class="segments-grid">
+                <div class="segment-card">
+                    <div class="segment-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Young Savers</h3>
+                    <ul>
+                        <li>Age: 18-30 years</li>
+                        <li>Low to medium balance</li>
+                        <li>High loan potential</li>
+                        <li>Digital-first banking</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <div class="segment-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Established Professionals</h3>
+                    <ul>
+                        <li>Age: 30-50 years</li>
+                        <li>High balance</li>
+                        <li>Premium services</li>
+                        <li>Investment focus</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <div class="segment-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Mortgage Seekers</h3>
+                    <ul>
+                        <li>Age: 25-40 years</li>
+                        <li>Medium to high balance</li>
+                        <li>High loan incidence</li>
+                        <li>Property investment</li>
+                    </ul>
+                </div>
+                <div class="segment-card">
+                    <div class="segment-icon">
+                        <i class="fas fa-umbrella-beach"></i>
+                    </div>
+                    <h3>Retired & Affluent</h3>
+                    <ul>
+                        <li>Age: 60+ years</li>
+                        <li>High net worth</li>
+                        <li>Wealth preservation</li>
+                        <li>Estate planning</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Insights Section -->
+    <section id="insights" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Key Insights</h2>
+            <div class="insights-container">
+                <div class="insight-chart" id="balanceChart">
+                    <!-- Chart will be rendered here by Chart.js -->
+                </div>
+                <div class="insight-text">
+                    <h3>Segment Analysis</h3>
+                    <p>Our analysis reveals distinct patterns in customer behavior across different segments. The visualization shows the average balance distribution across our four key segments, highlighting the financial diversity within our customer base.</p>
+                    <div class="insight-stats">
+                        <div class="stat">
+                            <h4>45%</h4>
+                            <p>Young Savers prefer digital banking</p>
+                        </div>
+                        <div class="stat">
+                            <h4>32%</h4>
+                            <p>Higher loan approval rate for Professionals</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Banking Strategy?</h2>
+            <p>Get detailed insights and personalized recommendations for your customer segments.</p>
+            <a href="#contact" class="btn btn-primary btn-large">Request Demo</a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="interest">
+                            <option value="">I'm interested in...</option>
+                            <option value="segmentation">Customer Segmentation</option>
+                            <option value="analytics">Data Analytics</option>
+                            <option value="consulting">Consulting</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>contact@bankseg.com</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-phone"></i>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>123 Finance District, New York, NY 10005</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <a href="#">BankSeg</a>
+                    <p>Data-driven customer segmentation for modern banking.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#overview">Overview</a></li>
+                        <li><a href="#methodology">Methodology</a></li>
+                        <li><a href="#segments">Segments</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h4>Subscribe to our Newsletter</h4>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BankSeg. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="js/utils.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/forms.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // Fallback function for login button click
+        function handleLoginClick(event) {
+            event.preventDefault();
+            console.log('🖱️ Login button clicked - redirecting to user dashboard...');
+            window.location.href = 'user-dashboard.html';
+        }
+    </script>
+</body>
+</html>

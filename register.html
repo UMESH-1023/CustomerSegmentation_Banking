@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Bank Customer Segmentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .auth-container {
+            display: flex;
+            min-height: 100vh;
+            background-color: #f8fafc;
+        }
+
+        .auth-left {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-left::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('images/hero-analytics.svg') no-repeat center center;
+            background-size: 80%;
+            opacity: 0.1;
+        }
+
+        .auth-left-content {
+            max-width: 500px;
+            z-index: 1;
+        }
+
+        .auth-left h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .auth-left p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .auth-features {
+            margin-top: 3rem;
+        }
+
+        .auth-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+        }
+
+        .auth-feature i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #c7d2fe;
+            margin-top: 0.25rem;
+        }
+
+        .auth-feature h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .auth-feature p {
+            font-size: 0.95rem;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        .auth-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .auth-card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+            padding: 3rem;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .auth-card h2 {
+            font-size: 1.8rem;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+            text-align: center;
+        }
+
+        .auth-card p {
+            color: #64748b;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #475569;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #a5b4fc;
+            box-shadow: 0 0 0 3px rgba(165, 180, 252, 0.3);
+        }
+
+        .role-selector {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .role-option {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .role-option.active {
+            border-color: #4f46e5;
+            background: #f8fafc;
+        }
+
+        .role-option i {
+            display: block;
+            font-size: 1.5rem;
+            color: #4f46e5;
+            margin-bottom: 0.5rem;
+        }
+
+        .btn-auth {
+            width: 100%;
+            padding: 0.875rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: #4f46e5;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #4338ca;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1px solid #cbd5e1;
+            color: #475569;
+        }
+
+        .btn-outline:hover {
+            background-color: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        .auth-divider {
+            display: flex;
+            align-items: center;
+            margin: 1.5rem 0;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        .auth-divider::before,
+        .auth-divider::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background-color: #e2e8f0;
+        }
+
+        .auth-divider span {
+            padding: 0 1rem;
+        }
+
+        .auth-footer {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .auth-footer a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: #dc2626;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+            display: none;
+        }
+
+        .input-error {
+            border-color: #f87171 !important;
+        }
+
+        .input-error:focus {
+            box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1) !important;
+        }
+
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .auth-logo a {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #4f46e5;
+            text-decoration: none;
+        }
+
+        .password-strength {
+            margin-top: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .password-strength.weak { color: #dc2626; }
+        .password-strength.medium { color: #f59e0b; }
+        .password-strength.strong { color: #10b981; }
+
+        @media (max-width: 992px) {
+            .auth-container {
+                flex-direction: column;
+            }
+
+            .auth-left, .auth-right {
+                padding: 3rem 1.5rem;
+            }
+
+            .auth-card {
+                padding: 2rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .auth-card {
+                padding: 1.5rem;
+            }
+
+            .auth-left h1 {
+                font-size: 2rem;
+            }
+
+            .form-row {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-left">
+            <div class="auth-left-content">
+                <h1>Join BankSeg Today!</h1>
+                <p>Create your account to access personalized banking insights and customer segmentation analysis.</p>
+
+                <div class="auth-features">
+                    <div class="auth-feature">
+                        <i class="fas fa-chart-line"></i>
+                        <div>
+                            <h3>Advanced Analytics</h3>
+                            <p>Get detailed insights into your spending patterns and financial behavior.</p>
+                        </div>
+                    </div>
+
+                    <div class="auth-feature">
+                        <i class="fas fa-user-cog"></i>
+                        <div>
+                            <h3>Personalized Dashboard</h3>
+                            <p>Access your customized banking dashboard with tailored recommendations.</p>
+                        </div>
+                    </div>
+
+                    <div class="auth-feature">
+                        <i class="fas fa-lock"></i>
+                        <div>
+                            <h3>Secure & Private</h3>
+                            <p>Your financial data is protected with enterprise-grade security.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="auth-right">
+            <div class="auth-card">
+                <div class="auth-logo">
+                    <a href="index.html">BankSeg</a>
+                </div>
+
+                <h2>Create Account</h2>
+                <p>Fill in your details to get started</p>
+
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" class="form-control" placeholder="Enter first name" required>
+                            <div class="error-message" id="firstName-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" class="form-control" placeholder="Enter last name" required>
+                            <div class="error-message" id="lastName-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
+                        <div class="error-message" id="email-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter phone number" required>
+                        <div class="error-message" id="phone-error"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dateOfBirth">Date of Birth</label>
+                            <input type="date" id="dateOfBirth" class="form-control" required>
+                            <div class="error-message" id="dateOfBirth-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" class="form-control" required>
+                                <option value="">Select gender</option>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                                <option value="other">Other</option>
+                                <option value="prefer-not-to-say">Prefer not to say</option>
+                            </select>
+                            <div class="error-message" id="gender-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="form-control" placeholder="Create a password" required minlength="8">
+                        <div class="password-strength" id="password-strength"></div>
+                        <div class="error-message" id="password-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmPassword">Confirm Password</label>
+                        <input type="password" id="confirmPassword" class="form-control" placeholder="Confirm your password" required>
+                        <div class="error-message" id="confirmPassword-error"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="employmentStatus">Employment Status</label>
+                        <select id="employmentStatus" class="form-control" required>
+                            <option value="">Select employment status</option>
+                            <option value="employed">Employed</option>
+                            <option value="self-employed">Self-employed</option>
+                            <option value="unemployed">Unemployed</option>
+                            <option value="retired">Retired</option>
+                            <option value="student">Student</option>
+                        </select>
+                        <div class="error-message" id="employmentStatus-error"></div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="annualIncome">Annual Income</label>
+                            <input type="number" id="annualIncome" class="form-control" placeholder="Enter annual income" required min="0">
+                            <div class="error-message" id="annualIncome-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="accountType">Account Type</label>
+                            <select id="accountType" class="form-control" required>
+                                <option value="">Select account type</option>
+                                <option value="savings">Savings</option>
+                                <option value="checking">Checking</option>
+                                <option value="both">Both</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="error-message" id="accountType-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="averageBalance">Average Account Balance</label>
+                            <input type="number" id="averageBalance" class="form-control" placeholder="Enter average balance" required min="0">
+                            <div class="error-message" id="averageBalance-error"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="monthlyTransaction">Monthly Transaction Amount</label>
+                            <input type="number" id="monthlyTransaction" class="form-control" placeholder="Enter monthly amount" required min="0">
+                            <div class="error-message" id="monthlyTransaction-error"></div>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="display: flex; align-items: center; margin-bottom: 1.5rem;">
+                        <input type="checkbox" id="terms" style="width: auto; margin-right: 0.5rem;" required>
+                        <label for="terms" style="margin: 0; font-size: 0.9rem; color: #475569;">
+                            I agree to the <a href="#" style="color: #4f46e5;">Terms of Service</a> and <a href="#" style="color: #4f46e5;">Privacy Policy</a>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn-auth btn-primary" id="registerBtn">
+                        <span class="btn-text">Create Account</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Creating account...
+                        </span>
+                    </button>
+
+                    <div class="auth-divider">
+                        <span>OR</span>
+                    </div>
+
+                    <a href="login.html" class="btn-auth btn-outline" style="display: block; text-align: center; text-decoration: none;">
+                        Already have an account? Sign in
+                    </a>
+
+                    <div class="auth-footer">
+                        <p><a href="index.html">← Back to Home</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const registerForm = document.getElementById('registerForm');
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirmPassword');
+            const registerBtn = document.getElementById('registerBtn');
+            const btnText = registerBtn.querySelector('.btn-text');
+            const btnLoading = registerBtn.querySelector('.btn-loading');
+
+            // Password strength checker
+            function checkPasswordStrength(password) {
+                let strength = 0;
+                const strengthElement = document.getElementById('password-strength');
+
+                if (password.length >= 8) strength += 1;
+                if (/[a-z]/.test(password)) strength += 1;
+                if (/[A-Z]/.test(password)) strength += 1;
+                if (/[0-9]/.test(password)) strength += 1;
+                if (/[^A-Za-z0-9]/.test(password)) strength += 1;
+
+                strengthElement.className = 'password-strength';
+
+                if (strength < 3) {
+                    strengthElement.textContent = 'Password strength: Weak';
+                    strengthElement.classList.add('weak');
+                } else if (strength < 4) {
+                    strengthElement.textContent = 'Password strength: Medium';
+                    strengthElement.classList.add('medium');
+                } else {
+                    strengthElement.textContent = 'Password strength: Strong';
+                    strengthElement.classList.add('strong');
+                }
+
+                return strength >= 3;
+            }
+
+            // Form validation functions
+            function validateEmail(email) {
+                const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            function validatePhone(phone) {
+                const re = /^[\+]?[1-9][\d]{0,15}$/;
+                return re.test(String(phone).replace(/[\s\-\(\)]/g, ''));
+            }
+
+            function showError(input, message) {
+                const formGroup = input.closest('.form-group');
+                const errorElement = formGroup.querySelector('.error-message');
+                input.classList.add('input-error');
+                errorElement.textContent = message;
+                errorElement.style.display = 'block';
+            }
+
+            function clearError(input) {
+                const formGroup = input.closest('.form-group');
+                const errorElement = formGroup.querySelector('.error-message');
+                input.classList.remove('input-error');
+                errorElement.style.display = 'none';
+            }
+
+            // Real-time validation
+            passwordInput.addEventListener('input', function() {
+                if (this.value) {
+                    checkPasswordStrength(this.value);
+                    if (confirmPasswordInput.value && this.value !== confirmPasswordInput.value) {
+                        showError(confirmPasswordInput, 'Passwords do not match');
+                    } else {
+                        clearError(confirmPasswordInput);
+                    }
+                }
+            });
+
+            confirmPasswordInput.addEventListener('input', function() {
+                if (this.value && passwordInput.value && this.value !== passwordInput.value) {
+                    showError(this, 'Passwords do not match');
+                } else {
+                    clearError(this);
+                }
+            });
+
+            // Form submission
+            registerForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+
+                const formData = {
+                    firstName: document.getElementById('firstName').value,
+                    lastName: document.getElementById('lastName').value,
+                    email: document.getElementById('email').value,
+                    phone: document.getElementById('phone').value,
+                    dateOfBirth: document.getElementById('dateOfBirth').value,
+                    gender: document.getElementById('gender').value,
+                    password: document.getElementById('password').value,
+                    confirmPassword: document.getElementById('confirmPassword').value,
+                    employmentStatus: document.getElementById('employmentStatus').value,
+                    annualIncome: parseFloat(document.getElementById('annualIncome').value),
+                    accountType: document.getElementById('accountType').value,
+                    averageBalance: parseFloat(document.getElementById('averageBalance').value),
+                    monthlyTransaction: parseFloat(document.getElementById('monthlyTransaction').value)
+                };
+
+                // Validate form
+                let isValid = true;
+
+                if (!formData.firstName.trim()) {
+                    showError(document.getElementById('firstName'), 'First name is required');
+                    isValid = false;
+                }
+
+                if (!formData.lastName.trim()) {
+                    showError(document.getElementById('lastName'), 'Last name is required');
+                    isValid = false;
+                }
+
+                if (!formData.email) {
+                    showError(document.getElementById('email'), 'Email is required');
+                    isValid = false;
+                } else if (!validateEmail(formData.email)) {
+                    showError(document.getElementById('email'), 'Please enter a valid email address');
+                    isValid = false;
+                }
+
+                if (!formData.phone) {
+                    showError(document.getElementById('phone'), 'Phone number is required');
+                    isValid = false;
+                } else if (!validatePhone(formData.phone)) {
+                    showError(document.getElementById('phone'), 'Please enter a valid phone number');
+                    isValid = false;
+                }
+
+                if (!formData.dateOfBirth) {
+                    showError(document.getElementById('dateOfBirth'), 'Date of birth is required');
+                    isValid = false;
+                }
+
+                if (!formData.gender) {
+                    showError(document.getElementById('gender'), 'Please select your gender');
+                    isValid = false;
+                }
+
+                if (!formData.password) {
+                    showError(document.getElementById('password'), 'Password is required');
+                    isValid = false;
+                } else if (formData.password.length < 8) {
+                    showError(document.getElementById('password'), 'Password must be at least 8 characters long');
+                    isValid = false;
+                } else if (!checkPasswordStrength(formData.password)) {
+                    showError(document.getElementById('password'), 'Password is too weak');
+                    isValid = false;
+                }
+
+                if (!formData.confirmPassword) {
+                    showError(document.getElementById('confirmPassword'), 'Please confirm your password');
+                    isValid = false;
+                } else if (formData.password !== formData.confirmPassword) {
+                    showError(document.getElementById('confirmPassword'), 'Passwords do not match');
+                    isValid = false;
+                }
+
+                if (!formData.employmentStatus) {
+                    showError(document.getElementById('employmentStatus'), 'Please select employment status');
+                    isValid = false;
+                }
+
+                if (!formData.annualIncome || formData.annualIncome <= 0) {
+                    showError(document.getElementById('annualIncome'), 'Please enter a valid annual income');
+                    isValid = false;
+                }
+
+                if (!formData.accountType) {
+                    showError(document.getElementById('accountType'), 'Please select account type');
+                    isValid = false;
+                }
+
+                if (!formData.averageBalance || formData.averageBalance < 0) {
+                    showError(document.getElementById('averageBalance'), 'Please enter a valid average balance');
+                    isValid = false;
+                }
+
+                if (!formData.monthlyTransaction || formData.monthlyTransaction < 0) {
+                    showError(document.getElementById('monthlyTransaction'), 'Please enter a valid monthly transaction amount');
+                    isValid = false;
+                }
+
+                if (!document.getElementById('terms').checked) {
+                    alert('Please accept the Terms of Service and Privacy Policy');
+                    isValid = false;
+                }
+
+                if (!isValid) return;
+
+                // Show loading state
+                btnText.style.display = 'none';
+                btnLoading.style.display = 'inline-block';
+                registerBtn.disabled = true;
+
+                try {
+                    const response = await fetch('http://localhost:5001/api/auth/register', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            email: formData.email,
+                            password: formData.password,
+                            role: 'customer',
+                            firstName: formData.firstName,
+                            lastName: formData.lastName,
+                            phone: formData.phone,
+                            dateOfBirth: formData.dateOfBirth,
+                            gender: formData.gender,
+                            employmentStatus: formData.employmentStatus,
+                            annualIncome: formData.annualIncome,
+                            accountType: formData.accountType,
+                            averageAccountBalance: formData.averageBalance,
+                            monthlyTransactionAmount: formData.monthlyTransaction
+                        })
+                    });
+
+                    const data = await response.json();
+
+                    if (response.ok) {
+                        // Store token and user data
+                        localStorage.setItem('token', data.token);
+                        localStorage.setItem('user', JSON.stringify(data.user));
+
+                        alert('Registration successful! Redirecting to dashboard...');
+                        window.location.href = 'user-dashboard.html';
+                    } else {
+                        throw new Error(data.message || 'Registration failed');
+                    }
+
+                } catch (error) {
+                    console.error('Registration error:', error);
+                    alert('Registration failed: ' + error.message);
+                } finally {
+                    // Reset form
+                    btnText.style.display = 'inline-block';
+                    btnLoading.style.display = 'none';
+                    registerBtn.disabled = false;
+                }
+            });
+
+            // Clear errors on input
+            const inputs = registerForm.querySelectorAll('.form-control');
+            inputs.forEach(input => {
+                input.addEventListener('focus', function() {
+                    clearError(this);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard - Bank Customer Segmentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary-color: #4f46e5;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --danger-color: #ef4444;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-900: #111827;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--gray-50); }
+
+        .container { max-width: 1200px; margin: 0 auto; padding: 2rem; }
+        .hero { text-align: center; padding: 4rem 0; background: white; border-radius: 12px; margin-bottom: 2rem; }
+        .hero h1 { font-size: 2.5rem; color: var(--gray-900); margin-bottom: 1rem; }
+        .hero p { font-size: 1.2rem; color: #666; margin-bottom: 2rem; }
+        .btn { padding: 1rem 2rem; background: var(--primary-color); color: white; text-decoration: none; border-radius: 8px; font-weight: 600; display: inline-block; }
+        .btn:hover { background: #3730a3; }
+
+        .dashboard-preview { background: white; padding: 2rem; border-radius: 12px; margin-top: 2rem; }
+        .preview-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
+        .preview-card { padding: 1.5rem; background: var(--gray-50); border-radius: 8px; border-left: 4px solid var(--primary-color); }
+        .preview-card h3 { margin-bottom: 1rem; color: var(--gray-900); }
+        .preview-card p { color: #666; line-height: 1.5; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🏦 Bank Customer Segmentation Dashboard</h1>
+            <p>Complete banking dashboard with user details, financial insights, and banking patterns</p>
+            <a href="user-dashboard.html" class="btn">
+                <i class="fas fa-tachometer-alt"></i>
+                Launch Dashboard
+            </a>
+        </div>
+
+        <div class="dashboard-preview">
+            <h2 style="text-align: center; margin-bottom: 2rem;">🚀 Dashboard Features</h2>
+            <div class="preview-grid">
+                <div class="preview-card">
+                    <h3><i class="fas fa-user"></i> User Details</h3>
+                    <p>Complete user profile with contact information, banking segment, and member status</p>
+                </div>
+                <div class="preview-card">
+                    <h3><i class="fas fa-chart-line"></i> Banking Patterns</h3>
+                    <p>Spending habits, savings patterns, income trends, and financial health indicators</p>
+                </div>
+                <div class="preview-card">
+                    <h3><i class="fas fa-lightbulb"></i> Smart Insights</h3>
+                    <p>AI-powered financial recommendations, budget alerts, and goal tracking</p>
+                </div>
+                <div class="preview-card">
+                    <h3><i class="fas fa-chart-bar"></i> Interactive Charts</h3>
+                    <p>Spending analysis, trend visualization, and financial goal progress</p>
+                </div>
+                <div class="preview-card">
+                    <h3><i class="fas fa-exchange-alt"></i> Transaction Management</h3>
+                    <p>Add new transactions, view history, and manage financial activities</p>
+                </div>
+                <div class="preview-card">
+                    <h3><i class="fas fa-trophy"></i> Financial Goals</h3>
+                    <p>Track progress, set new goals, and achieve financial milestones</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        console.log('🎯 Dashboard Access Page Loaded');
+        console.log('📍 Direct link to dashboard: user-dashboard.html');
+
+        // Auto-redirect to dashboard after 3 seconds for demo
+        setTimeout(() => {
+            console.log('🔄 Auto-redirecting to dashboard...');
+            window.location.href = 'user-dashboard.html';
+        }, 3000);
+    </script>
+</body>
+</html>
